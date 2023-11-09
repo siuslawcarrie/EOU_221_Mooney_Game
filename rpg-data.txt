@@ -1,0 +1,6 @@
+Moon_of_Endor
+Widget 90 Bola
+Storm_Trooper 85 Blaster
+10 25
+5 10
+1 10
