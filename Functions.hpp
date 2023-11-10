@@ -1,0 +1,8 @@
+//
+// Created by siusl on 11/9/2023.
+//
+
+#ifndef EOU_221_MOONEY_GAME_FUNCTIONS_HPP
+#define EOU_221_MOONEY_GAME_FUNCTIONS_HPP
+
+#endif //EOU_221_MOONEY_GAME_FUNCTIONS_HPP
