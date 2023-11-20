@@ -13,7 +13,7 @@ using namespace std;
 
 //functions
 
-void display_game_state(string Game_Location, string P1_Name, string P2_Name, int P1_Health, int P2_Health);
+void display_game_state(string Game_Location, string P1_Name, string P2_Name, int P1_Health, int P2_Health, string P1_Weapon, string P2_Weapon);
 
 void write_game_state(string Game_Location, string P1_Name, string P2_Name, int P1_Health, int P2_Health, ofstream out);
 

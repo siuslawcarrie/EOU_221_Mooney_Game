@@ -16,8 +16,7 @@ int validation_integer(int min,
 int validation_integer(int min,
                        int max); //function to validate integers
 
-float validation_float(float min,
-                       float max);
+int validation_int();
 {
     int number;
     cin >> number;
