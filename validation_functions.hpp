@@ -61,12 +61,12 @@ float validation_float(float min,
     return number;
 }
 
-int random_number(int min, int max) {
-    int number;
-// Generate a random number
-    srand((unsigned) time(nullptr));
-//random numbers must be between 1 & 99
-    number = rand() % min + 1;
-    number = rand() % max + 1;
-    return number;
-}
+//int random_number(int min, int max) {
+//    int number;
+//// Generate a random number
+//    srand((unsigned) time(nullptr));
+////random numbers must be between 1 & 99
+//    number = rand() % min + 1;
+//    number = rand() % max + 1;
+//    return number;
+//}

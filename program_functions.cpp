@@ -1,3 +1,4 @@
+#include <fstream>
 #include "program_functions.hpp"
 #include "validation_functions.hpp"
 
@@ -25,18 +26,19 @@ void display_game_state_playing(string P1_Name, string P2_Name, int P1_Health, i
 
 
 
-void write_game_state(string Game_Location, string P1_Name, string P2_Name, int P1_Health, int P2_Health, string P1_Weapon, string P2_Weapon, ofstream) {
-    ofstream write_game_state;
-    write_game_state.open("rpg-data.txt");
-    if (write_game_state.good()) { // Make sure the file was opened properly
-        write_game_state << cout << P1_Name << "'s health is: " << P1_Health << " and weapon is a " << P1_Weapon <<
+void write_game_state(string Game_Location, string P1_Name, string P2_Name, int P1_Health, int P2_Health, string P1_Weapon, string P2_Weapon, std::ofstream
+out) {
+
+
+    if (out.good()) { // Make sure the file was opened properly
+        out << P1_Name << "'s health is: " << P1_Health << " and weapon is a " << P1_Weapon <<
                          endl;
-        cout << P2_Name << "'s health is: " << P2_Health << " and weapon is a " << P2_Weapon <<
+        out << P2_Name << "'s health is: " << P2_Health << " and weapon is a " << P2_Weapon <<
              endl;
-        write_game_state.close();
+
     }
     else {
-        cout << "Unable to write to the file \"rpg_data.txt\"" << endl;
+        cout << "Unable to write to the file \"rpg_results.txt\"" << endl;
     }
 
 //get player move
@@ -48,55 +50,74 @@ void write_game_state(string Game_Location, string P1_Name, string P2_Name, int 
     }
 
 //player move disposition
-    char player_move_func(int Min_Fight, int Max_Fight, int Min_Weapon, int Max_Weapon, int Min_Heal, int Max_Heal) {
-        if (move == 1) {
-            P1_fight = random_number(Min_Fight, Max_Fight);
-            P2_fight = random_number(Min_Fight, Max_Fight);
-            if (P1_fight > P2_fight) { ;
-                {
-                    P2_Health = P2_Health - (P1_fight - P2_fight);
-                }
-                else {
-                    P1_Health = P1_Health - (P2_fight - P1_fight);
-                }
-                else if (move == 2) {
-                    P1_Weapon = random_number(Min_Weapon, Max_Weapon);
-                    P2_Weapon = random_number(Min_Weapon, Max_Weapon);
-                    if P1_Weapon > P2_Weapon{
-                                P2_Health -= P1_Weapon;
-                        }
-                    else {
-                        P1_Health -= P2_Weapon;
-                    }
+//    char player_move_func(int move, int Min_Fight, int Max_Fight, int Min_Weapon, int Max_Weapon, int Min_Heal, int Max_Heal) {
+//        if (move == 1) {
+//            P1_fight = random_number(Min_Fight, Max_Fight);
+//            P2_fight = random_number(Min_Fight, Max_Fight);
+//            if (P1_fight > P2_fight) { ;
+//                {
+//                    P2_Health = P2_Health - (P1_fight - P2_fight);
+//                }
+//                else {
+//                    P1_Health = P1_Health - (P2_fight - P1_fight);
+//                }
+//        else if (move == 2) {
+//            P1_Weapon = random_number(Min_Weapon, Max_Weapon);
+//            P2_Weapon = random_number(Min_Weapon, Max_Weapon);
+//            if P1_Weapon > P2_Weapon{
+//                        P2_Health -= P1_Weapon;
+//                }
+//            else {
+//                P1_Health -= P2_Weapon;
+//            }
+//
+//                }
+//                else {
+//                    heal = random_number(Min_Heal, Max_Heal);
+//                    if (player_turn = 1 and P1_num_potion <= 3) {
+//                        P1_Health += heal;
+//                    }
+//                    else if (player_turn != 1 and P2_num_potion <= 3) {
+//                        P2_Health += heal;
+//                    }
+//                    else {
+//                        cout << "Sorry, you have already used all of your potions. Turn over." << endl;
+//                    }
 
-                }
-                else {
-                    heal = random_number(Min_Heal, Max_Heal);
-                    if (player_turn = 1 and P1_num_potion <= 3) {
-                        P1_Health += heal;
-                    }
-                    else if (player_turn != 1 and P2_num_potion <= 3) {
-                        P2_Health += heal;
-                    }
-                    else {
-                        cout << "Sorry, you have already used all of your potions. Turn over." << endl;
-                    }
+//                }
+//            }
+//        }
 
-                }
-            }
-        }
-
-
-    }
-
-    int random_number(int min, int max) {
-        {
+    int random_number(int min, int max){
             srand((unsigned) time(nullptr));
             int number = rand();
             max % min + 1;
             return number;
-
         }
-    }
 
+//get_play_again{
+//};        cout << "Would you like to play again? y/n";
+//cin >> answer;
+//// convert to lower case
+//answer = tolower(answer);
+//
+//// validate response
+//do {
+//if ( answer != 'y' and answer != 'n')
+//{
+//cout << "Invalid response, must be y or n";
+//// clear buffer for new response
+//cin.clear();
+//cin.ignore(BIG_NUM, EOL);
+//// get new response
+//cin >> answer;
+//// convert to lower case
+//answer = tolower(answer);
+//}
+//} while ( answer != 'y' and answer != 'n');
+//}while ( answer == 'y');
+//
+//cout << "Nice playing with you. Goodbye!" << endl;
+//
+//return  0;
 }
