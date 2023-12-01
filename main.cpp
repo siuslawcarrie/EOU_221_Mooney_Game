@@ -2,8 +2,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "program_functions.hpp"
-#include "program_functions.cpp"
+#include <cstdlib>
+#include "program_functions.h"
+
 
 using namespace std;
 //CONSTANTS
@@ -44,7 +45,7 @@ int main() {
         cout << "Could not read file";
         return -1;
     }
-    display_game_state(Game_Location, P1_Name, P2_Name, P1_Health, P2_Health, P1_Weapon, P2_Weapon);
+    display_game_state_initial(Game_Location, P1_Name, P2_Name, P1_Health, P2_Health, P1_Weapon, P2_Weapon);
 
 //GAME LOOP
     while ((P1_Health > 0) and (P2_Health > 0)) {

@@ -1,8 +1,14 @@
 #include <fstream>
-#include "program_functions.hpp"
+#include "program_functions.h"
+#include <time.h>
+#include <stdlib.h>
 
+int random_number(int min, int max){
+    srand (time(NULL)); // random seed
+    return rand() % (max - min) + min;
+}
 
-void display_game_state(string Game_Location, string P1_Name, string P2_Name, int P1_Health, int P2_Health, string P1_Weapon, string P2_Weapon) {
+void display_game_state_initial(string Game_Location, string P1_Name, string P2_Name, int P1_Health, int P2_Health, string P1_Weapon, string P2_Weapon) {
     cout << "Welcome to Mooney Game!" <<
          endl;
     cout << "Each player will take turns choosing to fight, use weapon, or drink a health potion." <<
@@ -43,55 +49,4 @@ void write_game_state(string Game_Location, string P1_Name, string P2_Name, int 
     else {
         cout << "Unable to write to the file \"rpg_results.txt\"" << endl;
     }
-}
-    int validation_integer() { //function to validate integers
-        int val_number;
-        cin >> val_number;
-        while (!cin) {
-// Explain error not entering an integer
-            cout
-                    << "I'm sorry that's not a valid entry. Please enter a number" << endl;
-// Clear input stream
-            cin.clear();
-// Discard previous input
-            cin.ignore(123, '\n');
-            cin >> val_number;
-            cout << endl;
-        }
-        return val_number;
-    }
-//Random number function
-        int random_number(int min, int max) {
-            int rand_number;
-// Generate a random number
-            srand((unsigned) time(nullptr));
-//random numbers must be between 1 & 99
-            rand_number = rand() % min + 1;
-            rand_number = rand() % max + 1;
-            return rand_number;
-//get_play_again{
-//};        cout << "Would you like to play again? y/n";
-//cin >> answer;
-//// convert to lower case
-//answer = tolower(answer);
-//
-//// validate response
-//do {
-//if ( answer != 'y' and answer != 'n')
-//{
-//cout << "Invalid response, must be y or n";
-//// clear buffer for new response
-//cin.clear();
-//cin.ignore(BIG_NUM, EOL);
-//// get new response
-//cin >> answer;
-//// convert to lower case
-//answer = tolower(answer);
-//}
-//} while ( answer != 'y' and answer != 'n');
-//}while ( answer == 'y');
-//
-//cout << "Nice playing with you. Goodbye!" << endl;
-//
-//return  0;
 }
